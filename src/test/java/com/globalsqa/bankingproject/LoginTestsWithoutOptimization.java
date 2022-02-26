@@ -1,10 +1,7 @@
 package com.globalsqa.bankingproject;
 
 import com.codeborne.selenide.Selenide;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 
 import java.time.Duration;
 
@@ -62,6 +59,25 @@ public class LoginTestsWithoutOptimization {
 
         //ER: successful login
         $$(".borderM.box.padT20.ng-scope").first().$("strong").shouldHave(text("Welcome "+ "Albus Dumbledore" + " !!"));
+    }
+
+    @Test
+    @Disabled("Ron broke his wand and cannot login")
+    @DisplayName("Логин customer user Ron Weasly")
+    void rwLogin() {
+        // нажать на "Customer Login"
+        $(".btn-primary").shouldHave(text("Customer Login")).click();
+        $("[name=myForm]").shouldHave(text("Your Name :"), Duration.ofSeconds(15));
+        String currURL = getWebDriver().getCurrentUrl();
+        assertTrue(currURL.equals("https://www.globalsqa.com/angularJs-protractor/BankingProject/#/customer"));
+
+        // Выбрать "Your Name"
+        //Нажать кнопку "Login"
+        $("#userSelect").selectOption("Ron Weasly");
+        $$("button").findBy(text("Login")).shouldBe(visible).click();
+
+        //ER: successful login
+        $$(".borderM.box.padT20.ng-scope").first().$("strong").shouldHave(text("Welcome "+ "Ron Weasly" + " !!"));
     }
 
 }
