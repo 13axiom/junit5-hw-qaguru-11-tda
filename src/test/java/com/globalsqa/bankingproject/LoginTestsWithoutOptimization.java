@@ -10,6 +10,7 @@ import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$$;
 import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 @DisplayName("Отдельные тесты на логины разными юзерами")
@@ -32,7 +33,7 @@ public class LoginTestsWithoutOptimization {
         $(".btn-primary").shouldHave(text("Customer Login")).click();
         $("[name=myForm]").shouldHave(text("Your Name :"), Duration.ofSeconds(15));
         String currURL = getWebDriver().getCurrentUrl();
-        assertTrue(currURL.equals("https://www.globalsqa.com/angularJs-protractor/BankingProject/#/customer"));
+        assertEquals("https://www.globalsqa.com/angularJs-protractor/BankingProject/#/customer", currURL);
 
         // Выбрать "Your Name"
         //Нажать кнопку "Login"
@@ -50,7 +51,7 @@ public class LoginTestsWithoutOptimization {
         $(".btn-primary").shouldHave(text("Customer Login")).click();
         $("[name=myForm]").shouldHave(text("Your Name :"), Duration.ofSeconds(15));
         String currURL = getWebDriver().getCurrentUrl();
-        assertTrue(currURL.equals("https://www.globalsqa.com/angularJs-protractor/BankingProject/#/customer"));
+        assertEquals("https://www.globalsqa.com/angularJs-protractor/BankingProject/#/customer", currURL);
 
         // Выбрать "Your Name"
         //Нажать кнопку "Login"
@@ -69,7 +70,7 @@ public class LoginTestsWithoutOptimization {
         $(".btn-primary").shouldHave(text("Customer Login")).click();
         $("[name=myForm]").shouldHave(text("Your Name :"), Duration.ofSeconds(15));
         String currURL = getWebDriver().getCurrentUrl();
-        assertTrue(currURL.equals("https://www.globalsqa.com/angularJs-protractor/BankingProject/#/customer"));
+        assertEquals("https://www.globalsqa.com/angularJs-protractor/BankingProject/#/customer", currURL);
 
         // Выбрать "Your Name"
         //Нажать кнопку "Login"

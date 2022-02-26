@@ -4,7 +4,6 @@ import com.codeborne.selenide.Selenide;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
@@ -15,7 +14,7 @@ import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$$;
 import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @DisplayName("Параметрезированный тест на логин разными юзерами")
 public class LoginTestsWithOptimizationValueSource {
@@ -37,7 +36,7 @@ public class LoginTestsWithOptimizationValueSource {
         $(".btn-primary").shouldHave(text("Customer Login")).click();
         $("[name=myForm]").shouldHave(text("Your Name :"), Duration.ofSeconds(15));
         String currURL = getWebDriver().getCurrentUrl();
-        assertTrue(currURL.equals("https://www.globalsqa.com/angularJs-protractor/BankingProject/#/customer"));
+        assertEquals("https://www.globalsqa.com/angularJs-protractor/BankingProject/#/customer", currURL);
 
         // Выбрать "Your Name"
         //Нажать кнопку "Login"
