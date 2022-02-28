@@ -18,7 +18,7 @@ import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 @DisplayName("Параметрезированный тест на логин разными юзерами c несколькими проверками")
-public class complexLoginTestsWithMethodSource {
+public class ComplexLoginTestsWithMethodSource {
 
     @BeforeEach
     void precondition() {
